@@ -1,6 +1,6 @@
 {
-  "name": "eta-language-format",
-  "displayName": "Eta Language Support",
+  "name": "vscode-eta-language",
+  "displayName": "Eta Template Language for VS Code & Cursor",
   "description": "Syntax highlighting and language support for .eta (Eta template) files",
   "version": "0.1.0",
   "engines": {

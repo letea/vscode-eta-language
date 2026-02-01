@@ -14,7 +14,7 @@ Cursor / VS Code 擴充套件：為 `.eta`（Eta 模板）檔案提供語法高�
 
 1. 在 Cursor 中按 `Cmd+Shift+P`（macOS）或 `Ctrl+Shift+P`（Windows/Linux）開啟命令面板
 2. 執行 **「擴充功能：從資料夾安裝擴充功能」** 或 **「開發：從擴充功能開發主機執行」**
-3. 選擇本專案目錄 `eta-language-format`
+3. 選擇本專案目錄（如 `vscode-eta-language`）
 4. 會開啟新的 Cursor 視窗，其中已載入此擴充套件
 5. 在新視窗中開啟或建立副檔名為 `.eta` 的檔案，即可看到語法高亮
 
@@ -31,7 +31,7 @@ Cursor / VS Code 擴充套件：為 `.eta`（Eta 模板）檔案提供語法高�
 ```json
 "[eta]": {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "eta-language-format"
+  "editor.defaultFormatter": "vscode-eta-language"
 }
 ```
 
