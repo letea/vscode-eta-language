@@ -3,6 +3,9 @@
   "displayName": "Eta Template Language for VS Code & Cursor",
   "description": "Syntax highlighting and language support for .eta (Eta template) files",
   "version": "0.1.0",
+  "author": "letea",
+  "publisher": "letea",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -27,7 +30,11 @@
           "Eta",
           "HTML Template"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./images/eta-file-light.png",
+          "dark": "./images/eta-file-dark.png"
+        }
       }
     ],
     "grammars": [
