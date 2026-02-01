@@ -1,0 +1,107 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "text.html.eta",
+  "patterns": [
+    {
+      "include": "#eta-raw-double"
+    },
+    {
+      "include": "#eta-interpolate"
+    },
+    {
+      "include": "#eta-raw"
+    },
+    {
+      "include": "#eta-evaluate"
+    },
+    {
+      "include": "text.html.basic"
+    }
+  ],
+  "repository": {
+    "eta-raw-double": {
+      "name": "meta.embedded.block.javascript.eta",
+      "begin": "<<%[-_\\s]*~",
+      "end": "[-_\\s]*%>",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.eta"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.eta"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ],
+      "contentName": "meta.embedded.block.javascript.eta"
+    },
+    "eta-interpolate": {
+      "name": "meta.embedded.block.javascript.eta",
+      "begin": "<%[-_\\s]*=",
+      "end": "[-_\\s]*%>",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.eta"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.eta"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ],
+      "contentName": "meta.embedded.block.javascript.eta"
+    },
+    "eta-raw": {
+      "name": "meta.embedded.block.javascript.eta",
+      "begin": "<%[-_\\s]*~",
+      "end": "[-_\\s]*%>",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.eta"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.eta"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ],
+      "contentName": "meta.embedded.block.javascript.eta"
+    },
+    "eta-evaluate": {
+      "name": "meta.embedded.block.javascript.eta",
+      "begin": "<%",
+      "end": "[-_\\s]*%>",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.eta"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.eta"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ],
+      "contentName": "meta.embedded.block.javascript.eta"
+    }
+  }
+}

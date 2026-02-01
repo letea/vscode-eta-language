@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= it.title %></title>
+</head>
+<body>
+  <h1>Hello <%= it.name %>!</h1>
+
+  <% /* Eta comment: data is in `it` */ %>
+  <% if (it.items && it.items.length > 0) { %>
+  <ul>
+    <% it.items.forEach(function(item) { %>
+    <li><%= item.label %></li>
+    <% }); %>
+  </ul>
+  <% } else { %>
+  <p>No items.</p>
+  <% } %>
+
+  <%~ it.rawHtml %>
+
+  <<%~ include("./partial.eta") %>
+</body>
+</html>

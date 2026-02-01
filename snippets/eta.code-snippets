@@ -1,0 +1,37 @@
+{
+  "Interpolate (escaped)": {
+    "prefix": "eta",
+    "body": ["<%= $1 %>"],
+    "description": "Eta: output escaped value"
+  },
+  "Raw output": {
+    "prefix": "etaraw",
+    "body": ["<%~ $1 %>"],
+    "description": "Eta: output raw HTML"
+  },
+  "Include partial": {
+    "prefix": "include",
+    "body": ["<%~ include(\"${1:./path-to-partial}\") %>"],
+    "description": "Eta: include partial"
+  },
+  "Layout": {
+    "prefix": "layout",
+    "body": ["<% layout(\"${1:./path-to-layout}\") %>"],
+    "description": "Eta: set parent layout"
+  },
+  "it variable": {
+    "prefix": "it",
+    "body": ["it.${1:property}"],
+    "description": "Eta: template data (it)"
+  },
+  "Code block": {
+    "prefix": "etaif",
+    "body": ["<% if ($1) { %>", "\t$0", "<% } %>"],
+    "description": "Eta: if block"
+  },
+  "For loop": {
+    "prefix": "etafor",
+    "body": ["<% $1.forEach(function($2) { %>", "\t$0", "<% }); %>"],
+    "description": "Eta: forEach block"
+  }
+}

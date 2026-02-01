@@ -1,0 +1,38 @@
+{
+  "name": "eta-language-format",
+  "displayName": "Eta (HTML Template) Language Support",
+  "description": "Syntax highlighting and language support for .eta (Eta template) files",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "eta",
+        "extensions": [".eta"],
+        "aliases": ["Eta", "HTML Template"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "eta",
+        "scopeName": "text.html.eta",
+        "path": "./syntaxes/eta.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.javascript.eta": "javascript"
+        }
+      }
+    ],
+    "snippets": [
+      {
+        "language": "eta",
+        "path": "./snippets/eta.code-snippets"
+      }
+    ]
+  }
+}
