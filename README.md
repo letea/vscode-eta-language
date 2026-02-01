@@ -1,32 +1,32 @@
 # Eta Language Support
 
-Cursor / VS Code 擴充套件：為 `.eta`（Eta 模板）檔案提供語法高亮與基本編輯支援。
+Cursor / VS Code extension: provides syntax highlighting and basic editing support for `.eta` (Eta template) files.
 
-## 功能
+## Features
 
-- **語法高亮**：HTML 區塊、Eta 標籤（`<%=`、`<%~`、`<%`）、以及標籤內的 JavaScript
-- **嵌入 JavaScript**：在 `<% ... %>` 內享有括號配對、註解（`//`、`/* */`）等與 JS 一致的編輯行為
-- **存檔時格式化**：可註冊為 Eta 的 formatter，支援「Format Document」與「Format on Save」（需在設定中啟用）
+- **Syntax highlighting**: HTML blocks, Eta tags (`<%=`, `<%~`, `<%`), and JavaScript inside tags
+- **Embedded JavaScript**: Inside `<% ... %>`, enjoy bracket matching, comments (`//`, `/* */`), and other JS-consistent editing behavior
+- **Format on save**: Can be registered as Eta's formatter, supporting "Format Document" and "Format on Save" (enable in settings)
 
-## 安裝與驗證
+## Installation and Verification
 
-### 在 Cursor 中載入（開發模式）
+### Load in Cursor (development mode)
 
-1. 在 Cursor 中按 `Cmd+Shift+P`（macOS）或 `Ctrl+Shift+P`（Windows/Linux）開啟命令面板
-2. 執行 **「擴充功能：從資料夾安裝擴充功能」** 或 **「開發：從擴充功能開發主機執行」**
-3. 選擇本專案目錄（如 `vscode-eta-language`）
-4. 會開啟新的 Cursor 視窗，其中已載入此擴充套件
-5. 在新視窗中開啟或建立副檔名為 `.eta` 的檔案，即可看到語法高亮
+1. Open the Command Palette in Cursor with `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux)
+2. Run **"Extensions: Install Extension from Folder"** or **"Development: Run Extension in Development Host"**
+3. Select this project directory (e.g. `vscode-eta-language`)
+4. A new Cursor window will open with this extension loaded
+5. Open or create a file with the `.eta` extension in the new window to see syntax highlighting
 
-### 範例檔案
+### Sample file
 
-專案內含 `sample.eta`，可用於檢查三種 Eta 標籤與 HTML 的高亮是否正確。
+The project includes `sample.eta`, which you can use to verify that all three Eta tag types and HTML are highlighted correctly.
 
-### 存檔時格式化
+### Format on save
 
-擴充會註冊 Eta 的 **Document Formatting** 提供者；HTML 區塊會依 `js-beautify` 規則縮排，Eta 標籤（`<% ... %>`）內容會保留不變。
+The extension registers an Eta **Document Formatting** provider; HTML blocks are indented according to `js-beautify` rules, and Eta tag (`<% ... %>`) contents are left unchanged.
 
-若要存檔時自動格式化，請在 Cursor/VS Code 的 `settings.json` 中為 Eta 啟用：
+To enable automatic formatting on save, add the following to your Cursor/VS Code `settings.json` for Eta:
 
 ```json
 "[eta]": {
@@ -35,17 +35,17 @@ Cursor / VS Code 擴充套件：為 `.eta`（Eta 模板）檔案提供語法高�
 }
 ```
 
-若工作區或使用者已啟用 `editor.formatOnSave`，且未針對 `[eta]` 關閉，存檔時也會使用本擴充的 formatter；此時可省略 `editor.defaultFormatter`。
+If workspace or user settings already enable `editor.formatOnSave` and do not disable it for `[eta]`, the extension's formatter will be used on save; in that case you may omit `editor.defaultFormatter`.
 
-## 支援的 Eta 語法
+## Supported Eta syntax
 
-| 標籤        | 範例                                    | 說明             |
-| ----------- | --------------------------------------- | ---------------- |
-| 插值        | `<%= it.name %>`                        | 輸出並跳脫       |
-| 原始輸出    | `<%~ it.html %>`、`<<%~ it.body %>`     | 輸出原始 HTML    |
-| 程式碼/註解 | `<% /* comment */ %>`、`<% if (x) { %>` | 執行 JS          |
-| 空白控制    | `<%-= ... -%>`                          | 可選的 `-` / `_` |
+| Tag           | Example                                   | Description          |
+| ------------- | ----------------------------------------- | -------------------- |
+| Interpolation | `<%= it.name %>`                          | Output and escape    |
+| Raw output    | `<%~ it.html %>`, `<<%~ it.body %>`       | Output raw HTML      |
+| Code/comment  | `<% /* comment */ %>`, `<% if (x) { %>`   | Execute JS           |
+| Whitespace    | `<%-= ... -%>`                            | Optional `-` / `_`   |
 
-## 授權
+## License
 
 MIT
