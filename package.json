@@ -16,7 +16,8 @@
     "main": "./extension.js",
     "activationEvents": [
         "onLanguage:eta",
-        "onCommand:eta.formatDocument"
+        "onCommand:eta.formatDocument",
+        "onCommand:eta.debugBlockComment"
     ],
     "categories": [
         "Programming Languages"
@@ -65,6 +66,17 @@
             {
                 "command": "eta.formatDocument",
                 "title": "Eta: Format Document"
+            },
+            {
+                "command": "eta.debugBlockComment",
+                "title": "Eta: Debug Block Comment"
+            }
+        ],
+        "keybindings": [
+            {
+                "key": "cmd+/",
+                "command": "eta.debugBlockComment",
+                "when": "editorTextFocus && editorLangId == eta"
             }
         ],
         "configuration": {

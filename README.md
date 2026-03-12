@@ -6,6 +6,7 @@ Cursor / VS Code extension: provides syntax highlighting and basic editing suppo
 
 - **Syntax highlighting**: HTML blocks, Eta tags (`<%=`, `<%~`, `<%`), and JavaScript inside tags
 - **Embedded JavaScript**: Inside `<% ... %>`, enjoy bracket matching, comments (`//`, `/* */`), and other JS-consistent editing behavior
+- **Eta comment shortcut**: In `.eta` files, `Cmd + /` triggers block comment and wraps content as `<% /* ... */ %>`
 - **Format on save**: Can be registered as Eta's formatter, supporting "Format Document" and "Format on Save" (enable in settings)
 
 ## Installation and Verification
@@ -21,6 +22,16 @@ Cursor / VS Code extension: provides syntax highlighting and basic editing suppo
 ### Sample file
 
 The project includes `sample.eta`, which you can use to verify that all three Eta tag types and HTML are highlighted correctly.
+
+### Comment shortcut (`Cmd + /`)
+
+In `.eta` files, this extension binds `Cmd + /` to **Block Comment** behavior (language-scoped), so comment toggling uses Eta-wrapped block comments:
+
+```eta
+<% /* comment */ %>
+```
+
+In non-`.eta` files, `Cmd + /` keeps the editor's default behavior for that language.
 
 ### Format on save
 

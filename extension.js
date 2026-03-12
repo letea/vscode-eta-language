@@ -16,6 +16,11 @@ function createFullDocumentRange(document) {
   return new vscode.Range(0, 0, lastLine, lastCharacter);
 }
 
+function unwrapEtaComment(text) {
+  const match = text.match(/^\s*<%\s*\/\*\s?([\s\S]*?)\s?\*\/\s*%>\s*$/);
+  return match ? match[1] : null;
+}
+
 /**
  * @param {vscode.ExtensionContext} context
  */
@@ -44,7 +49,39 @@ function activate(context) {
     await vscode.commands.executeCommand('editor.action.formatDocument');
   });
 
-  context.subscriptions.push(formattingProvider, formatCommand);
+  const debugBlockCommentCommand = vscode.commands.registerCommand('eta.debugBlockComment', async () => {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+      return;
+    }
+
+    const { document, selection } = editor;
+    const currentLine = document.lineAt(selection.active.line).text;
+    const selectedText = document.getText(selection);
+
+    if (!selection.isEmpty) {
+      const unwrappedSelection = unwrapEtaComment(selectedText);
+      await editor.edit((editBuilder) => {
+        if (unwrappedSelection !== null) {
+          editBuilder.replace(selection, unwrappedSelection);
+          return;
+        }
+        editBuilder.replace(selection, `<% /* ${selectedText} */ %>`);
+      });
+    } else {
+      const lineRange = document.lineAt(selection.active.line).range;
+      const unwrappedLine = unwrapEtaComment(currentLine);
+      if (unwrappedLine !== null) {
+        await editor.edit((editBuilder) => {
+          editBuilder.replace(lineRange, unwrappedLine);
+        });
+      } else {
+        await editor.insertSnippet(new vscode.SnippetString('<% /* $1 */ %>'), selection.active);
+      }
+    }
+  });
+
+  context.subscriptions.push(formattingProvider, formatCommand, debugBlockCommentCommand);
 }
 
 function deactivate() {}
