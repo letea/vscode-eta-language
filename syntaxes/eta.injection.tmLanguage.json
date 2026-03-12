@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "text.html.eta.injection",
+  "injectionSelector": "L:text.html.eta",
+  "patterns": [
+    {
+      "include": "text.html.eta#eta-tags"
+    }
+  ]
+}

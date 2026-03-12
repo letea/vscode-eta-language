@@ -15,14 +15,12 @@
     },
     "main": "./extension.js",
     "activationEvents": [
-        "onLanguage:eta"
+        "onLanguage:eta",
+        "onCommand:eta.formatDocument"
     ],
     "categories": [
         "Programming Languages"
     ],
-    "dependencies": {
-        "js-beautify": "^1.15.0"
-    },
     "scripts": {
         "package": "vsce package",
         "publish": "vsce publish",
@@ -52,10 +50,35 @@
                 "scopeName": "text.html.eta",
                 "path": "./syntaxes/eta.tmLanguage.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.javascript.eta": "javascript"
+                    "meta.embedded.block.javascript": "javascript"
                 }
+            },
+            {
+                "scopeName": "text.html.eta.injection",
+                "path": "./syntaxes/eta.injection.tmLanguage.json",
+                "injectTo": [
+                    "text.html.eta"
+                ]
             }
         ],
+        "commands": [
+            {
+                "command": "eta.formatDocument",
+                "title": "Eta: Format Document"
+            }
+        ],
+        "configuration": {
+            "title": "Eta Formatter",
+            "properties": {
+                "eta.formatter.indentSize": {
+                    "type": "number",
+                    "default": 2,
+                    "minimum": 1,
+                    "maximum": 8,
+                    "description": "Fallback indentation size for Eta formatter when editor tab size is unavailable."
+                }
+            }
+        },
         "snippets": [
             {
                 "language": "eta",
