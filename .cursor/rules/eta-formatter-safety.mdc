@@ -1,0 +1,29 @@
+---
+description: Guardrails for Eta formatter behavior and safety
+alwaysApply: true
+---
+
+# Eta Formatter Safety
+
+When modifying formatter logic, preserve Eta semantics and only change formatting.
+
+## Semantics First
+
+- Treat Eta tag behavior as source of truth from <https://eta.js.org/>.
+- Keep support expectations clear for `<%=`, `<%~`, and `<% ... %>`.
+- Preserve block comments in Eta form (`/* ... */`) without semantic rewrite.
+- Respect whitespace control markers (`-`) and avoid destructive normalization.
+
+## Algorithm Boundaries
+
+- Keep indentation decisions explicit and deterministic.
+- Avoid mutating JavaScript expressions inside Eta tags unless required.
+- For mixed Eta+HTML lines, ensure split/reflow does not reorder content.
+
+## Required Example Coverage
+
+For formatter edits, provide at least these input/output examples:
+- Eta-only block with nested braces.
+- HTML with nested tags and Eta interpolation.
+- Mixed line where `%>` is followed by HTML.
+

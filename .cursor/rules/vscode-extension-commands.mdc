@@ -1,0 +1,26 @@
+---
+description: Keep extension commands, activation, and keybindings consistent
+alwaysApply: true
+---
+
+# Extension Command Consistency
+
+Use this rule when changing extension commands, activation events, or settings.
+
+## Manifest and Runtime Sync
+
+- Ensure `package.json` command IDs match `extension.js` registrations exactly.
+- Keep `activationEvents` aligned with language and command usage.
+- Keep `contributes.keybindings` `when` clauses aligned with intended editor scope.
+
+## Formatter Registration
+
+- If formatting behavior changes, verify formatting provider registration remains valid.
+- Keep configuration keys (for example `eta.formatter.indentSize`) consistent between manifest and code.
+
+## Regression Checks
+
+- Confirm `eta.formatDocument` still triggers document formatting.
+- Confirm `eta.debugBlockComment` still works for selection and cursor-only flows.
+- Confirm non-eta files are not affected by eta-specific keybinding behavior.
+

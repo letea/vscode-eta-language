@@ -1,0 +1,27 @@
+---
+description: Project-wide workflow for vscode-eta-language changes
+alwaysApply: true
+---
+
+# Project Workflow
+
+Apply this workflow for any change in this repository.
+
+## Start
+
+1. Read `package.json` and `README.md` first.
+2. Identify whether the change affects runtime behavior, docs, or both.
+3. Keep edits minimal and focused on one behavior at a time.
+
+## Coupling Checks
+
+- If `extension.js` changes, verify related manifest entries in `package.json`.
+- If `formatter.js` changes, verify Eta examples in `README.md` still match behavior.
+- If command IDs or settings keys change, update all references in a single pass.
+
+## Validation
+
+- Confirm no accidental behavior drift outside requested scope.
+- Provide a short manual verification checklist for `.eta` files.
+- Mention any known limitations explicitly.
+

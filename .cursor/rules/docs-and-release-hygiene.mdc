@@ -1,0 +1,26 @@
+---
+description: Update docs and release metadata for user-visible behavior changes
+alwaysApply: true
+---
+
+# Docs and Release Hygiene
+
+For user-visible behavior changes, update docs and release metadata in the same task.
+
+## Documentation
+
+- Update `README.md` whenever command behavior, formatting behavior, or setup changes.
+- Keep examples consistent with current behavior and Eta syntax expectations.
+- State required editor settings clearly for format-on-save behavior.
+
+## Version and Packaging Awareness
+
+- If behavior changes are significant, review version bump expectations in `package.json`.
+- Keep packaging and publish scripts usable (`vsce package`, `vsce publish`, `publish:openvsx`).
+- Avoid introducing undocumented settings or command names.
+
+## Final Output
+
+- Provide a concise change note listing user-visible impacts.
+- Include a short verification path users can run in Cursor / VS Code.
+
